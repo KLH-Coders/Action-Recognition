@@ -28,3 +28,18 @@ ROOT_DIR = os.getcwd()
 import coco
 config = coco.CocoConfig()
 COCO_DIR = r"C:\Users\sai kamal\AppData\Local\Programs\Python\Python310\Lib\site-packages\pycocotools\coco"  # TODO: enter value here
+# Load dataset
+if config.NAME == 'shapes':
+    dataset = shapes.ShapesDataset()
+    dataset.load_shapes(500, config.IMAGE_SHAPE[0], config.IMAGE_SHAPE[1])
+elif config.NAME == "coco":
+    dataset = coco.CocoDataset()
+    dataset.load_coco(COCO_DIR,"train")
+
+# Must call before using the dataset
+dataset.prepare()
+
+print("Image Count: {}".format(len(dataset.image_ids)))
+print("Class Count: {}".format(dataset.num_classes))
+for i, info in enumerate(dataset.class_info):
+    print("{:3}. {:50}".format(i, info['name']))
