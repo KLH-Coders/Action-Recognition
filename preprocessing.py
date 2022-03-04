@@ -35,8 +35,9 @@ if config.NAME == 'shapes':
 elif config.NAME == "coco":
     dataset = coco.CocoDataset()
     dataset.load_coco(COCO_DIR,"train")
-
+    
 # Must call before using the dataset
+
 dataset.prepare()
 
 print("Image Count: {}".format(len(dataset.image_ids)))
