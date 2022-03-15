@@ -1,2 +1,2 @@
-# Semi-supervisedPoseEstimation
-Recovers the pose of an articulated body and the objects which consists of joints and rigid parts using MaskRCNN
+# Human Action recognition
+Recovers the pose of an articulated body which can determine action of human.
